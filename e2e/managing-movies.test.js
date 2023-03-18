@@ -8,6 +8,6 @@ describe('managing movies', () => {
   });
 
   it('allows viewing and creating movies', async () => {
-    // TODO
+    throw new Error('Replace this exception with your first test!');
   });
 });

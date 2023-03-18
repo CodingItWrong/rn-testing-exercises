@@ -1,8 +1,10 @@
-# My Project
+# React Native Testing Workshop - Exercises
 
-Describe your project here.
+The exercise repository used in the React Native Testing workshop at Chain React 2023.
 
 ## Requirements
+
+Follow the instructions in React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup) for "React Native CLI Quickstart". This should include setting up:
 
 - [Node](https://nodejs.org)
 - [Yarn 1.x](https://classic.yarnpkg.com/lang/en/)
@@ -12,22 +14,102 @@ Describe your project here.
 
 ## Installation
 
-- Clone the repo
-- Run `yarn install`
-- Run `cd ios && pod install`
+Clone the repo locally:
 
-Dependencies are locked with `yarn.lock`; please use `yarn` rather than `npm` for installing.
+```bash
+git clone https://github.com/CodingItWrong/rn-testing-exercises.git
+```
 
-## Running
+Install the dependencies:
 
-- In one terminal, run `yarn start`
-- In another terminal, run `yarn android` or `yarn ios`
+```bash
+$ cd rn-testing-exercises
+$ yarn install
+$ npx pod-install
+```
 
-## Unit Tests
+Get an API key:
 
-- Run `yarn test`
+- Go to <https://api.outsidein.dev> and click the "Create API Key" button. A personal API key will be created for you and shown to you.
+- Copy the API key. Open the file `src/api.js` and replace the value of the `API_KEY` variable with the API key.
 
-## E2E Tests
+## Trying It Out
 
-- Run `detox build -c ios.sim.debug` (only needs to be run once per native code changes)
-- Run `detox test -c ios.sim.debug`
+Do the following to make sure your local installation is working. If you run into any issues, feel free to ask for help in [my react-native-testing Discord channel](https://discord.gg/jVXCxZPF6f).
+
+- Run `yarn test`. You should see output like the following:
+
+```text
+ FAIL  src/MovieRow.spec.js
+  MovieRow
+    ✕ displays the movie name
+
+  ● MovieRow › displays the movie name
+
+    Replace this exception with your first test!
+
+      1 | describe('MovieRow', () => {
+      2 |   it('displays the movie name', () => {
+    > 3 |     throw new Error('Replace this exception with your first test!');
+        |           ^
+      4 |   });
+      5 |
+      6 |   // add additional tests as needed to fully specify the component's behavior
+
+      at Object.<anonymous> (src/MovieRow.spec.js:3:11)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.193 s, estimated 1 s
+Ran all test suites.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+```
+
+- Run `detox build -c ios.sim.debug`
+- Run `detox test -c ios.sim.debug`. You should see output like the following:
+
+```text
+ FAIL  e2e/managing-movies.test.js (8.382 s)
+  managing movies
+    ✕ allows viewing and creating movies (1737 ms)
+
+  ● managing movies › allows viewing and creating movies
+
+    Replace this exception with your first test!
+
+       9 |
+      10 |   it('allows viewing and creating movies', async () => {
+    > 11 |     throw new Error('Replace this exception with your first test!');
+         |           ^
+      12 |   });
+      13 | });
+      14 |
+
+      at Object.<anonymous> (e2e/managing-movies.test.js:11:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:27:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:19:12)
+
+07:54:49.038 detox[32840] E Command failed with exit code = 1:
+jest --config e2e/jest.config.js
+```
+
+- Run `yarn start`. You should see the following prompt (maybe with some warnings after it):
+
+```
+  Welcome to Metro v0.73.8
+Fast - Scalable - Integrated
+
+r - reload the app
+d - open developer menu
+i - run on iOS
+a - run on Android
+```
+
+- Press `i` to build and run the app on an iOS Simulator, or `a` to build and run it on an Android Emulator
+- If it is not working, see React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup) page for help.
+- Once the app is launched, make sure you can see the example movies "Vertigo" and "The Sound of Music" listed.
+- Type in a movie title and click Save. Confirm the movie is added to the list, with a yellow icon appearing to the right of it
