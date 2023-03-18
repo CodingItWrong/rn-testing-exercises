@@ -1,4 +1,4 @@
-describe('Example', () => {
+describe('managing movies', () => {
   beforeAll(async () => {
     await device.launchApp();
   });
@@ -7,7 +7,7 @@ describe('Example', () => {
     await device.reloadReactNative();
   });
 
-  it('should say hello', async () => {
-    await expect(element(by.text('Hello, React Native!'))).toBeVisible();
+  it('allows viewing and creating movies', async () => {
+    // TODO
   });
 });
