@@ -23,10 +23,14 @@ git clone https://github.com/CodingItWrong/rn-testing-exercises.git
 Install the dependencies:
 
 ```bash
-$ cd rn-testing-exercises
-$ yarn install
-$ npx pod-install
+cd rn-testing-exercises
+yarn install
+npx pod-install
 ```
+
+_If you encounter a problem, please have a look at [the GitHub Issues](https://github.com/CodingItWrong/rn-testing-exercises/issues)._
+
+## Setup
 
 Get an API key:
 
@@ -99,7 +103,7 @@ jest --config e2e/jest.config.js
 
 - Run `yarn start`. You should see the following prompt (maybe with some warnings after it):
 
-```
+```text
   Welcome to Metro v0.73.8
 Fast - Scalable - Integrated
 
