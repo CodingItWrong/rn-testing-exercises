@@ -12,6 +12,7 @@ const api = {
       data: {
         ...body,
         id: 3,
+        addedToday: true,
       },
     });
   },

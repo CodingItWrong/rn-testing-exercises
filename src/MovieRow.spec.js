@@ -1,7 +1,25 @@
+import {render, screen} from '@testing-library/react-native';
+import MovieRow from './MovieRow';
+
 describe('MovieRow', () => {
-  it('displays the movie name', () => {
-    throw new Error('Replace this exception with your first test!');
+  it('displays the name', () => {
+    const movie = {title: 'Spider-Man: No Way Home'};
+    render(<MovieRow movie={movie} />);
+
+    expect(screen.getByText(movie.title)).toBeVisible();
   });
 
-  // add additional tests as needed to fully specify the component's behavior
+  it('renders a new icon when the movie was added today', () => {
+    const movie = {addedToday: true};
+    render(<MovieRow movie={movie} />);
+
+    expect(screen.getByLabelText('Added Today')).toBeVisible();
+  });
+
+  it('does not render a new icon when the movie was not added today', () => {
+    const movie = {addedToday: false};
+    render(<MovieRow movie={movie} />);
+
+    expect(screen.queryByLabelText('Added Today')).toBeNull();
+  });
 });

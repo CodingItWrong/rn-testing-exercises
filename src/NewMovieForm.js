@@ -18,8 +18,12 @@ export default function NewMovieForm({onCreate}) {
         value={inputText}
         onChangeText={setInputText}
         style={styles.textField}
+        testID="new-movie-title-field"
       />
-      <Pressable onPress={handleSend} style={styles.saveButton}>
+      <Pressable
+        onPress={handleSend}
+        style={styles.saveButton}
+        testID="save-movie-button">
         <Text>Save</Text>
       </Pressable>
     </View>

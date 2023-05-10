@@ -1,4 +1,6 @@
 describe('managing movies', () => {
+  const newMovieTitle = 'Movie 3';
+
   beforeAll(async () => {
     await device.launchApp();
   });
@@ -8,6 +10,12 @@ describe('managing movies', () => {
   });
 
   it('allows viewing and creating movies', async () => {
-    throw new Error('Replace this exception with your first test!');
+    await expect(element(by.text('Movie 1'))).toBeVisible();
+    await expect(element(by.text('Movie 2'))).toBeVisible();
+
+    await element(by.id('new-movie-title-field')).typeText(newMovieTitle);
+    await element(by.id('save-movie-button')).tap();
+
+    await expect(element(by.text('Movie 3'))).toBeVisible();
   });
 });
